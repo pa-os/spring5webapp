@@ -1,12 +1,17 @@
 package guru.springframework.spring5webapp.domain;
 
+import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.*;
-import java.util.Set;
 
 @RequiredArgsConstructor
 @NoArgsConstructor
@@ -15,15 +20,15 @@ import java.util.Set;
 @Entity
 public class Book {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
-    private String title;
+  private String title;
 
-    private String isbn;
+  private String isbn;
 
-    @ManyToMany
-    @JoinTable(name="author_book", joinColumns = @JoinColumn(name="book_id"), inverseJoinColumns = @JoinColumn(name="author_id"))
-    private Set<Author> authors;
+  @ManyToMany
+  @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
+  private Set<Author> authors;
 }
