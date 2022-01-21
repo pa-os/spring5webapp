@@ -1,10 +1,14 @@
 package guru.springframework.spring5webapp.domain;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -30,6 +34,10 @@ public class Publisher {
   private String zip;
 
   private String city;
+
+  @OneToMany
+  @JoinColumn(name = "publisher_id")
+  private Set<Book> books = new HashSet<>();
 
   public Publisher(String name, String addressLine1, String street, String zip, String city) {
     this.name = name;
