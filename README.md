@@ -1,3 +1,7 @@
+# Personal Remarks
+
+- I am Using the [Google Code Style for Java](https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml) for this Project
+
 # Spring Framework 5: Beginner to Guru
 
 This repository is for an example application built in my [Spring Framework 5 - Beginner to Guru](https://www.udemy.com/testing-spring-boot-beginner-to-guru/?couponCode=GITHUB_REPO) online course
