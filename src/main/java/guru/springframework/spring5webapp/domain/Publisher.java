@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,12 +23,20 @@ public class Publisher {
 
   private String name;
 
-  @ManyToOne
-  private Address address;
+  private String addressLine1;
 
-  public Publisher(String name, Address address) {
+  private String street;
+
+  private String zip;
+
+  private String city;
+
+  public Publisher(String name, String addressLine1, String street, String zip, String city) {
     this.name = name;
-    this.address = address;
+    this.addressLine1 = addressLine1;
+    this.street = street;
+    this.zip = zip;
+    this.city = city;
   }
 
   @Override

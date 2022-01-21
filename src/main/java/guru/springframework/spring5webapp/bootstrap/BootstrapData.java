@@ -1,10 +1,8 @@
 package guru.springframework.spring5webapp.bootstrap;
 
-import guru.springframework.spring5webapp.domain.Address;
 import guru.springframework.spring5webapp.domain.Author;
 import guru.springframework.spring5webapp.domain.Book;
 import guru.springframework.spring5webapp.domain.Publisher;
-import guru.springframework.spring5webapp.repositories.AddressRepository;
 import guru.springframework.spring5webapp.repositories.AuthorRepository;
 import guru.springframework.spring5webapp.repositories.BookRepository;
 import guru.springframework.spring5webapp.repositories.PublisherRepository;
@@ -21,8 +19,6 @@ public class BootstrapData implements CommandLineRunner {
   private final AuthorRepository authorRepository;
 
   private final BookRepository bookRepository;
-
-  private final AddressRepository addressRepository;
 
   private final PublisherRepository publisherRepository;
 
@@ -45,16 +41,13 @@ public class BootstrapData implements CommandLineRunner {
     authorRepository.save(rod);
     bookRepository.save(noEJB);
 
-    Address first = new Address("Muster Straße 1", "01111", "Musterstadt");
-    Publisher firstBooks = new Publisher("First Books", first);
+    Publisher firstBooks = new Publisher("First Books", "", "Muster Straße 1", "01111", "Musterstadt");
 
-    addressRepository.save(first);
     publisherRepository.save(firstBooks);
 
     log.info("Started in Bootstrap");
     log.info("Number of Books: " + bookRepository.count());
     log.info("Number of Authors: " + authorRepository.count());
-    log.info("Number of Addresses: " + addressRepository.count());
     log.info("Number of Publishers: " + publisherRepository.count());
   }
 }
